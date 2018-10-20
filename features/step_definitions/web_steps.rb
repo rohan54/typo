@@ -36,8 +36,8 @@ Given /^the blog is set up$/ do
                                    :base_url => 'http://localhost:3000'});
   Blog.default.save!
   User.create!({:login => 'admin',
-                :password => 'aaaaaaaa',
-                :email => 'joe@snow.com',
+                :password => '01q1fZ7',
+                :email => 'rohan@tamu.edu',
                 :profile_id => 1,
                 :name => 'admin',
                 :state => 'active'})
@@ -46,7 +46,7 @@ end
 And /^I am logged into the admin panel$/ do
   visit '/accounts/login'
   fill_in 'user_login', :with => 'admin'
-  fill_in 'user_password', :with => 'aaaaaaaa'
+  fill_in 'user_password', :with => '01q1fZ7'
   click_button 'Login'
   if page.respond_to? :should
     page.should have_content('Login successful')
@@ -82,7 +82,7 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
-  fill_in(field, :with => value)
+  fill_in(field, :with => value, visible:false)
 end
 
 When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
